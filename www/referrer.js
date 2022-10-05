@@ -5,15 +5,7 @@ function getReferrer(success, error) {
         });
     }
 
-    cordova.exec(function (result) {
-        if (result) {
-            success(result);
-        } else {
-            setTimeout(function () {
-                getReferrer(success, error)
-            }, 500);
-        }
-    }, error, 'referrer');
+    cordova.exec(success, error, 'referrer');
 }
 
 exports.getReferrer = getReferrer;
